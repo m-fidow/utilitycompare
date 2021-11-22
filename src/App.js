@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Table from "./components/Table";
+// import React, {useS} from "react";
+import axios from "axios";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    axios
+      .get("https://6177b8b59c328300175f5adc.mockapi.io/api/test/deals")
+      .then((response) => {
+        // Code for handling the response
+        console.log(response.data.deals);
+        setItems(response.data.deals);
+      })
+      .catch((error) => {
+        // Code for handling the error
+        console.log(error);
+      });
+  }, []);
+  return <Table items={items} />;
 }
 
 export default App;
