@@ -1,5 +1,6 @@
 // import React, { useState, useEffect } from "react";
 import ProviderInfo from "./ProviderInfo";
+import TableCell from "@mui/material/TableCell";
 
 // import axios from "axios";
 export default function Item({
@@ -12,9 +13,19 @@ export default function Item({
 }) {
   //   {item.map((x)=> console.log(x)}
   return (
-    <div>
-      <ProviderInfo {...item} />
-      hello from here
+    <>
+      {/* <TableCell component="th" scope="row">
+        <ProviderInfo {...item} />
+      </TableCell> */}
+
+      <TableCell component="th" scope="row">
+        <ProviderInfo {...item} />
+      </TableCell>
+      <TableCell align="right">{monthly_price}</TableCell>
+      <TableCell align="right">{internet_speed}</TableCell>
+      <TableCell align="right">{set_up_cost}</TableCell>
+      <TableCell align="right">{contract_info}</TableCell>
+
       {/* {console.log(provider_name)} */}
       {/* <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -50,6 +61,6 @@ export default function Item({
         );
       })}
       {console.log({ item })} */}
-    </div>
+    </>
   );
 }

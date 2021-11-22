@@ -19,9 +19,9 @@ function DataTable({ items }) {
               key={index}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              <TableCell>
-                <Item key={index} {...item} />
-              </TableCell>
+              {/* <TableCell> */}
+              <Item key={index} {...item} />
+              {/* </TableCell> */}
               {/* <TableCell component="th" scope="row">
                   <Grid container>
                    <Grid item><img src={} alt=""/></Grid>
