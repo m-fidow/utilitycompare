@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Table from "./components/Table";
+import DataTable from "./components/Table";
 // import React, {useS} from "react";
 import axios from "axios";
 
@@ -18,7 +18,7 @@ function App() {
         console.log(error);
       });
   }, []);
-  return <Table items={items} />;
+  return <DataTable items={items} />;
 }
 
 export default App;
