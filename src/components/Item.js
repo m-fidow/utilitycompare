@@ -3,22 +3,19 @@ import ProviderInfo from "./ProviderInfo";
 
 // import axios from "axios";
 export default function Item({
-  provider_name,
-  deal_name,
   monthly_price,
   internet_speed,
   set_up_cost,
-  provider_logo_image_url,
-  provider_rating,
   broadband_type,
   contract_info,
+  ...item
 }) {
   //   {item.map((x)=> console.log(x)}
   return (
     <div>
-      <ProviderInfo />
-      hello from {provider_name}
-      {console.log(provider_name)}
+      <ProviderInfo {...item} />
+      hello from here
+      {/* {console.log(provider_name)} */}
       {/* <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           {" "}

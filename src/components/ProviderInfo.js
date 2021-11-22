@@ -1,7 +1,7 @@
 import React from "react";
 
-function ProviderInfo() {
-  return <div>hello from provider info</div>;
+function ProviderInfo({ provider_name }) {
+  return <div>hello from provider info's {provider_name}</div>;
 }
 
 export default ProviderInfo;
