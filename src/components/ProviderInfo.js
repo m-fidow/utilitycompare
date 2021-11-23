@@ -1,9 +1,10 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
-import Rating from "react-rating";
+// import Rating from "react-rating";
 import { Box } from "@mui/system";
-import { FaRegStar } from "react-icons/fa";
-import { FaStar } from "react-icons/fa/";
+
+import Rating from "@mui/material/Rating";
+import Stack from "@mui/material/Stack";
 
 function ProviderInfo({
   provider_name,
@@ -19,15 +20,15 @@ function ProviderInfo({
       <Grid item>
         {provider_name}
         <p>{deal_name}</p>
-        <Box>
-          <Rating initialRating={provider_rating * 5} readonly />
-        </Box>
-
-        {/* <Rating
-          emptySymbol="fa fa-star-o"
-          fullSymbol="fa fa-star"
-          fractions={2}
-        /> */}
+        {provider_rating}
+        <Stack spacing={1}>
+          <Rating
+            name="half-rating-read"
+            defaultValue={provider_rating * 5}
+            precision={0.1}
+            readOnly
+          />
+        </Stack>
       </Grid>
     </Grid>
   );
