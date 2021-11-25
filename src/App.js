@@ -10,7 +10,7 @@ function App() {
       .get("https://6177b8b59c328300175f5adc.mockapi.io/api/test/deals")
       .then((response) => {
         // Code for handling the response
-        // console.log(response.data.deals);
+        console.log(response.data.deals);
         setItems(response.data.deals);
       })
       .catch((error) => {

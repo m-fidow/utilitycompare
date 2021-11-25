@@ -27,6 +27,7 @@ function DataTable({ items }) {
     console.log(x.provider_name);
     console.log({ comparedItems });
     console.log(comparedItems.length);
+    console.log(typeof comparedItems);
   };
   const removeFromCompare = (x) => {
     const filteredItems = comparedItems.filter(
@@ -57,7 +58,7 @@ function DataTable({ items }) {
           ))}
         </TableBody>
       </Table>
-      {comparedItems.length > 0 && <Drawer state={open} />}
+      {comparedItems.length > 0 && <Drawer comparedItems={comparedItems} />}
     </TableContainer>
   );
 }

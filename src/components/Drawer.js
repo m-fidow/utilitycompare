@@ -57,7 +57,7 @@ const drawerWidth = -240;
 //   justifyContent: "flex-end",
 // }));
 
-export default function PersistentDrawerLeft({ state }) {
+export default function PersistentDrawerLeft({ comparedItems }) {
   //   const theme = useTheme();
   //   const [open, setOpen] = React.useState(false);
 
@@ -68,6 +68,7 @@ export default function PersistentDrawerLeft({ state }) {
   //   const handleDrawerClose = () => {
   //     setOpen(false);
   //   };
+  // const elementsInComparison = [{ ...comparedItems }];
 
   return (
     //     <Box sx={{ display: "flex" }}>
@@ -101,7 +102,7 @@ export default function PersistentDrawerLeft({ state }) {
       }}
       variant="persistent"
       anchor="bottom"
-      open={state}
+      open={true}
     >
       {/* <DrawerHeader>
         <IconButton onClick={handleDrawerClose}>
@@ -114,14 +115,13 @@ export default function PersistentDrawerLeft({ state }) {
       </DrawerHeader> */}
 
       <List sx={{ display: "flex" }}>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
+        {console.log("in drawer", comparedItems)}
+        {comparedItems.map((el, index) => (
+          <ListItem key={index}>{el.provider_name}</ListItem>
         ))}
+        {/* {elementsInComparison.map((el, index) => (
+          <ListItem>{console.log(el.comparedItems[index])}</ListItem>
+        ))} */}
       </List>
     </Drawer>
 
