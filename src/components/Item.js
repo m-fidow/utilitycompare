@@ -1,6 +1,9 @@
-// import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ProviderInfo from "./ProviderInfo";
+// import CompareButton from "./Button";
+import Drawer from "./Drawer";
 import TableCell from "@mui/material/TableCell";
+import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 
 export default function Item({
@@ -11,9 +14,19 @@ export default function Item({
   contract_info,
   ...item
 }) {
-  //   {item.map((x)=> console.log(x)}
+  const [open, setOpen] = useState(false);
+  const toggleDrawer = (open) => {
+    // if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    //   return;
+    // }
+
+    setOpen(!open);
+    console.log(open);
+  };
+
   return (
     <>
+      <Drawer toggle={toggleDrawer} state={open} />
       <TableCell component="th" scope="row">
         <ProviderInfo {...item} />
       </TableCell>
@@ -36,6 +49,11 @@ export default function Item({
           <Grid item> {contract_info}</Grid>
           <Grid item>Contract</Grid>
         </Grid>
+      </TableCell>
+      <TableCell align="center">
+        <Button variant="contained" onClick={() => toggleDrawer(open)}>
+          Add to compare
+        </Button>
       </TableCell>
     </>
   );
