@@ -57,7 +57,7 @@ function DataTable({ items }) {
           ))}
         </TableBody>
       </Table>
-      <Drawer state={open} />
+      {comparedItems.length > 0 && <Drawer state={open} />}
     </TableContainer>
   );
 }
