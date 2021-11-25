@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import ProviderInfo from "./ProviderInfo";
 // import CompareButton from "./Button";
 import Drawer from "./Drawer";
@@ -7,16 +6,15 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 
 export default function Item({
-  item,
-  // monthly_price,
-  // internet_speed,
-  // set_up_cost,
-  // broadband_type,
-  // contract_info,
+  monthly_price,
+  internet_speed,
+  set_up_cost,
+  broadband_type,
+  contract_info,
   addToCompare,
   removeFromCompare,
   comparedItems,
-  // deal_id,
+  ...item
 }) {
   return (
     <>
@@ -24,7 +22,7 @@ export default function Item({
         <ProviderInfo {...item} />
       </TableCell>
       <TableCell align="right">
-        £{item.monthly_price}
+        £{monthly_price}
         <Grid item>Monthy Cost</Grid>
       </TableCell>
       <TableCell align="right">

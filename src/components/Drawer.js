@@ -5,10 +5,8 @@ import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 
 import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+// import ListItemIcon from "@mui/material/ListItemIcon";
+// import ListItemText from "@mui/material/ListItemText";
 
 const drawerWidth = -240;
 
@@ -31,23 +29,6 @@ const drawerWidth = -240;
 //   })
 // );
 
-// const AppBar = styled(MuiAppBar, {
-//   shouldForwardProp: (prop) => prop !== "open",
-// })(({ theme, open }) => ({
-//   transition: theme.transitions.create(["margin", "width"], {
-//     easing: theme.transitions.easing.sharp,
-//     duration: theme.transitions.duration.leavingScreen,
-//   }),
-//   ...(open && {
-//     heigth: `calc(100% - ${drawerWidth}px)`,
-//     // marginRight: `${drawerWidth}px`,
-//     transition: theme.transitions.create(["margin", "width"], {
-//       easing: theme.transitions.easing.easeOut,
-//       duration: theme.transitions.duration.enteringScreen,
-//     }),
-//   }),
-// }));
-
 // const DrawerHeader = styled("div")(({ theme }) => ({
 //   display: "flex",
 //   alignItems: "center",
@@ -57,38 +38,8 @@ const drawerWidth = -240;
 //   justifyContent: "flex-end",
 // }));
 
-export default function PersistentDrawerLeft({ comparedItems }) {
-  //   const theme = useTheme();
-  //   const [open, setOpen] = React.useState(false);
-
-  //   const handleDrawerOpen = () => {
-  //     setOpen(true);
-  //   };
-
-  //   const handleDrawerClose = () => {
-  //     setOpen(false);
-  //   };
-  // const elementsInComparison = [{ ...comparedItems }];
-
+export default function PersistentDrawerBottom({ comparedItems }) {
   return (
-    //     <Box sx={{ display: "flex" }}>
-    //       <CssBaseline />
-    //       <AppBar position="fixed" open={open}>
-    //         <Toolbar>
-    //           <IconButton
-    //             color="inherit"
-    //             aria-label="open drawer"
-    //             onClick={handleDrawerOpen}
-    //             edge="start"
-    //             sx={{ mr: 2, ...(open && { display: "none" }) }}
-    //           >
-    //             <MenuIcon />
-    //           </IconButton>
-    //           <Typography variant="h6" noWrap component="div">
-    //             Persistent drawer
-    //           </Typography>
-    //         </Toolbar>
-    //       </AppBar>
     <Drawer
       sx={{
         width: drawerWidth,
@@ -96,7 +47,7 @@ export default function PersistentDrawerLeft({ comparedItems }) {
         "& .MuiDrawer-paper": {
           width: drawerWidth,
           maxHeight: "20%",
-          height: "250px",
+          height: "100px",
           boxSizing: "border-box",
         },
       }}
@@ -104,24 +55,11 @@ export default function PersistentDrawerLeft({ comparedItems }) {
       anchor="bottom"
       open={true}
     >
-      {/* <DrawerHeader>
-        <IconButton onClick={handleDrawerClose}>
-          {theme.direction === "ltr" ? (
-            <ChevronLeftIcon />
-          ) : (
-            <ChevronRightIcon />
-          )}
-        </IconButton>
-      </DrawerHeader> */}
-
       <List sx={{ display: "flex" }}>
         {console.log("in drawer", comparedItems)}
         {comparedItems.map((el, index) => (
           <ListItem key={index}>{el.provider_name}</ListItem>
         ))}
-        {/* {elementsInComparison.map((el, index) => (
-          <ListItem>{console.log(el.comparedItems[index])}</ListItem>
-        ))} */}
       </List>
     </Drawer>
 

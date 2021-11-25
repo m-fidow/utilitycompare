@@ -11,32 +11,16 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
 function DataTable({ items }) {
-  // {
-  //   console.log({ items });
-  // }
-  const [open, setOpen] = useState(true);
   const [comparedItems, setComparedItems] = useState([]);
-  // const toggleDrawer = (product) => {
-  //   // addToCompare(product);
-  //   setOpen(true);
 
-  //   console.log(open);
-  // };
   const addToCompare = (x) => {
     setComparedItems((comparedItems) => [...comparedItems, x]);
-    console.log(x.provider_name);
-    console.log({ comparedItems });
-    console.log(comparedItems.length);
-    console.log(typeof comparedItems);
   };
   const removeFromCompare = (x) => {
     const filteredItems = comparedItems.filter(
       (product) => product.deal_id !== x.deal_id
     );
-    console.log({ filteredItems });
     setComparedItems(() => filteredItems);
-    // console.log({ filteredItems });
-    console.log(x.deal_id);
   };
   return (
     <TableContainer component={Paper}>
@@ -52,13 +36,15 @@ function DataTable({ items }) {
                 comparedItems={comparedItems}
                 addToCompare={addToCompare}
                 removeFromCompare={removeFromCompare}
-                item={item}
+                {...item}
               />
             </TableRow>
           ))}
         </TableBody>
       </Table>
-      {comparedItems.length > 0 && <Drawer comparedItems={comparedItems} />}
+      {comparedItems.length > 0 && (
+        <Drawer comparedItems={[...comparedItems]} />
+      )}
     </TableContainer>
   );
 }
