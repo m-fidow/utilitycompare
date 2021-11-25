@@ -15,18 +15,16 @@ export default function Item({
   ...item
 }) {
   const [open, setOpen] = useState(false);
+  const [comparedItem, setComparedItem] = useState("hello");
   const toggleDrawer = (open) => {
-    // if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-    //   return;
-    // }
-
     setOpen(!open);
+    setComparedItem("muna");
     console.log(open);
+    console.log(comparedItem);
   };
 
   return (
     <>
-      <Drawer toggle={toggleDrawer} state={open} />
       <TableCell component="th" scope="row">
         <ProviderInfo {...item} />
       </TableCell>
@@ -55,6 +53,7 @@ export default function Item({
           Add to compare
         </Button>
       </TableCell>
+      <Drawer toggle={toggleDrawer} state={open} />
     </>
   );
 }
