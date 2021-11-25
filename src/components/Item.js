@@ -15,14 +15,16 @@ export default function Item({
   ...item
 }) {
   const [open, setOpen] = useState(false);
-  const [comparedItem, setComparedItem] = useState("hello");
-  const toggleDrawer = (open) => {
-    setOpen(!open);
-    setComparedItem("muna");
+  const [comparedItems, setComparedItems] = useState([]);
+  const toggleDrawer = (product) => {
+    setOpen(true);
+    addToCompare(product);
     console.log(open);
-    console.log(comparedItem);
   };
-
+  const addToCompare = (product) => {
+    setComparedItems((comparedItems) => [...comparedItems, product]);
+    console.log(comparedItems);
+  };
   return (
     <>
       <TableCell component="th" scope="row">
@@ -49,11 +51,11 @@ export default function Item({
         </Grid>
       </TableCell>
       <TableCell align="center">
-        <Button variant="contained" onClick={() => toggleDrawer(open)}>
+        <Button variant="contained" onClick={() => toggleDrawer(item)}>
           Add to compare
         </Button>
       </TableCell>
-      <Drawer toggle={toggleDrawer} state={open} />
+      <Drawer state={open} />
     </>
   );
 }
