@@ -23,14 +23,14 @@ export default function Item({
       <TableCell component="th" scope="row">
         <ProviderInfo
           {...item}
-          rating={
-            <Rating
-              name="half-rating-read"
-              defaultValue={item.provider_rating * 5 ?? " "}
-              precision={0.1}
-              readOnly
-            />
-          }
+          // rating={
+          //   <Rating
+          //     name="half-rating-read"
+          //     defaultValue={item.provider_rating * 5 ?? " "}
+          //     precision={0.1}
+          //     readOnly
+          //   />
+          // }
         />
       </TableCell>
       <TableCell align="right">
