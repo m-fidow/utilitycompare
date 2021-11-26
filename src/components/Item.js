@@ -27,6 +27,7 @@ export default function Item({
               name="half-rating-read"
               defaultValue={item.provider_rating * 5 ?? " "}
               precision={0.1}
+              size="small"
               readOnly
             />
           }
