@@ -67,11 +67,11 @@ export default function PersistentDrawerBottom({ comparedItems }) {
   };
   const StyledTableBody = styled(TableBody)(({ theme }) => ({
     "&": {
-      borderRight: "1px solid gray",
+      borderRight: "1px solid purple",
     },
     // hide last border
-    "&:last-child td, &:last-child th": {
-      borderRight: 0,
+    "&:last-child , &:last-child ": {
+      borderRight: "none",
     },
   }));
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
@@ -146,6 +146,13 @@ export default function PersistentDrawerBottom({ comparedItems }) {
             <Box display="flex">
               {comparedItems.map((x) => (
                 <StyledTableBody>
+                  <Box p={2}>
+                    <ProviderInfo
+                      provider_name={x.provider_name}
+                      provider_logo_image_url={x.provider_logo_image_url}
+                      deal_name={x.deal_name}
+                    />
+                  </Box>
                   <StyledTableRow>
                     <StyledTableCell>Provider Name</StyledTableCell>
                     <StyledTableCell>{x.provider_name}</StyledTableCell>
