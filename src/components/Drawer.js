@@ -9,8 +9,10 @@ import Button from "@mui/material/Button";
 import ProviderInfo from "./ProviderInfo";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
-
+import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
 import { Grid, Typography } from "@mui/material";
 // import ListItemIcon from "@mui/material/ListItemIcon";
 // import ListItemText from "@mui/material/ListItemText";
@@ -113,17 +115,40 @@ export default function PersistentDrawerBottom({ comparedItems }) {
             <Typography>Compare</Typography>
             <Box display="flex">
               {comparedItems.map((x) => (
-                <Grid container>
-                  <Grid item>
-                    <p>Provider Name </p>
-                    <p>{x.provider_name}</p>
-                  </Grid>
-                  <Grid item>
-                    <p>Rating </p>
-                    <p>{x.provider_rating}</p>
-                  </Grid>
-                  {/* <Grid item>Set up {x.set_up_cost}</Grid> */}
-                </Grid>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>Provider Name</TableCell>
+                    <TableCell>{x.provider_name}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Monthly Cost</TableCell>
+                    <TableCell>{x.monthly_price}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Tariff Type</TableCell>
+                    <TableCell>{x.provider_name}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Speed</TableCell>
+                    <TableCell>{x.internet_speed} Mbps</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Set Up Cost</TableCell>
+                    <TableCell>£{x.set_up_cost}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>One Off Cost</TableCell>
+                    <TableCell>£{x.set_up_cost}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Term End</TableCell>
+                    <TableCell>{x.contract_info} Months</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Data Limits</TableCell>
+                    <TableCell>{x.data_limits} </TableCell>
+                  </TableRow>
+                </TableBody>
               ))}
             </Box>
           </Box>
@@ -134,3 +159,14 @@ export default function PersistentDrawerBottom({ comparedItems }) {
     // </Box>
   );
 }
+/* <Grid container>
+                  <Grid item>
+                    <p>Provider Name </p>
+                    <p>{x.provider_name}</p>
+                  </Grid>
+                  <Grid item>
+                    <p>Rating </p>
+                    <p>{x.provider_rating}</p>
+                  </Grid>
+              
+                </Grid> */
