@@ -55,8 +55,12 @@ export default function Item({
       </TableCell>
       <TableCell align="center">
         {comparedItems && comparedItems.includes(item) ? (
-          <Button variant="contained" onClick={() => removeFromCompare(item)}>
-            remove from compare
+          <Button
+            variant="contained"
+            onClick={() => removeFromCompare(item)}
+            sx={{ backgroundColor: "red" }}
+          >
+            Remove
           </Button>
         ) : (
           <Button variant="contained" onClick={() => addToCompare(item)}>
