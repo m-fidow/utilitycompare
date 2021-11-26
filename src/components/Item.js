@@ -1,11 +1,10 @@
 import ProviderInfo from "./ProviderInfo";
 // import CompareButton from "./Button";
-import Drawer from "./Drawer";
+
 import TableCell from "@mui/material/TableCell";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Rating from "@mui/material/Rating";
-import Stack from "@mui/material/Stack";
 
 export default function Item({
   item,

@@ -1,9 +1,6 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 // import Rating from "react-rating";
-import { Box } from "@mui/system";
-
-import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 
 function ProviderInfo({
