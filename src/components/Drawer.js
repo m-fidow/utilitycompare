@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Drawer from "@mui/material/Drawer";
 
 import List from "@mui/material/List";
-
+import { styled } from "@mui/material/styles";
 import ListItem from "@mui/material/ListItem";
 import Button from "@mui/material/Button";
 import ProviderInfo from "./ProviderInfo";
@@ -65,6 +65,15 @@ export default function PersistentDrawerBottom({ comparedItems }) {
     boxShadow: 24,
     p: 4,
   };
+  const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.palette.action.hover,
+    },
+    // hide last border
+    "&:last-child td, &:last-child th": {
+      border: 0,
+    },
+  }));
   return (
     <Drawer
       sx={{
@@ -111,42 +120,44 @@ export default function PersistentDrawerBottom({ comparedItems }) {
       >
         <Box sx={style}>
           <Box>
-            <Typography>Compare</Typography>
+            <Typography component="h1" variant="h5">
+              Compare
+            </Typography>
             <Box display="flex">
               {comparedItems.map((x) => (
                 <TableBody>
-                  <TableRow>
+                  <StyledTableRow>
                     <TableCell>Provider Name</TableCell>
                     <TableCell>{x.provider_name}</TableCell>
-                  </TableRow>
-                  <TableRow>
+                  </StyledTableRow>
+                  <StyledTableRow>
                     <TableCell>Monthly Cost</TableCell>
                     <TableCell>{x.monthly_price}</TableCell>
-                  </TableRow>
-                  <TableRow>
+                  </StyledTableRow>
+                  <StyledTableRow>
                     <TableCell>Tariff Type</TableCell>
                     <TableCell>{x.provider_name}</TableCell>
-                  </TableRow>
-                  <TableRow>
+                  </StyledTableRow>
+                  <StyledTableRow>
                     <TableCell>Speed</TableCell>
                     <TableCell>{x.internet_speed} Mbps</TableCell>
-                  </TableRow>
-                  <TableRow>
+                  </StyledTableRow>
+                  <StyledTableRow>
                     <TableCell>Set Up Cost</TableCell>
                     <TableCell>£{x.set_up_cost}</TableCell>
-                  </TableRow>
-                  <TableRow>
+                  </StyledTableRow>
+                  <StyledTableRow>
                     <TableCell>One Off Cost</TableCell>
                     <TableCell>£{x.set_up_cost}</TableCell>
-                  </TableRow>
-                  <TableRow>
+                  </StyledTableRow>
+                  <StyledTableRow>
                     <TableCell>Term End</TableCell>
                     <TableCell>{x.contract_info} Months</TableCell>
-                  </TableRow>
-                  <TableRow>
+                  </StyledTableRow>
+                  <StyledTableRow>
                     <TableCell>Data Limits</TableCell>
                     <TableCell>{x.data_limits} </TableCell>
-                  </TableRow>
+                  </StyledTableRow>
                 </TableBody>
               ))}
             </Box>
