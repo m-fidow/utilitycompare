@@ -11,6 +11,7 @@ function ProviderInfo({
   provider_logo_image_url,
   deal_name,
   provider_rating,
+  rating,
 }) {
   return (
     <Grid container>
@@ -22,12 +23,13 @@ function ProviderInfo({
         <p>{deal_name}</p>
         {provider_rating}
         <Stack spacing={1}>
-          <Rating
+          {rating}
+          {/* <Rating
             name="half-rating-read"
             defaultValue={provider_rating * 5}
             precision={0.1}
             readOnly
-          />
+          /> */}
         </Stack>
       </Grid>
     </Grid>

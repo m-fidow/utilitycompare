@@ -4,6 +4,8 @@ import Drawer from "./Drawer";
 import TableCell from "@mui/material/TableCell";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+import Rating from "@mui/material/Rating";
+import Stack from "@mui/material/Stack";
 
 export default function Item({
   monthly_price,
@@ -14,12 +16,23 @@ export default function Item({
   addToCompare,
   removeFromCompare,
   comparedItems,
+  provider_rating,
   ...item
 }) {
   return (
     <>
       <TableCell component="th" scope="row">
-        <ProviderInfo {...item} />
+        <ProviderInfo
+          {...item}
+          rating={
+            <Rating
+              name="half-rating-read"
+              defaultValue={provider_rating * 5}
+              precision={0.1}
+              readOnly
+            />
+          }
+        />
       </TableCell>
       <TableCell align="right">
         £{monthly_price}

@@ -5,6 +5,8 @@ import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 
 import ListItem from "@mui/material/ListItem";
+import ProviderInfo from "./ProviderInfo";
+
 // import ListItemIcon from "@mui/material/ListItemIcon";
 // import ListItemText from "@mui/material/ListItemText";
 
@@ -58,7 +60,13 @@ export default function PersistentDrawerBottom({ comparedItems }) {
       <List sx={{ display: "flex" }}>
         {console.log("in drawer", comparedItems)}
         {comparedItems.map((el, index) => (
-          <ListItem key={index}>{el.provider_name}</ListItem>
+          <ListItem key={index}>
+            <ProviderInfo
+              provider_name={el.provider_name}
+              provider_logo_image_url={el.provider_logo_image_url}
+              deal_name={el.deal_name}
+            />
+          </ListItem>
         ))}
       </List>
     </Drawer>
