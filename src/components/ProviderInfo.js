@@ -21,7 +21,6 @@ function ProviderInfo({
       <Grid item>
         {provider_name}
         <p>{deal_name}</p>
-        {provider_rating}
         <Stack spacing={1}>{rating}</Stack>
       </Grid>
     </Grid>

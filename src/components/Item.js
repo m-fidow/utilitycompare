@@ -23,14 +23,14 @@ export default function Item({
       <TableCell component="th" scope="row">
         <ProviderInfo
           {...item}
-          // rating={
-          //   <Rating
-          //     name="half-rating-read"
-          //     defaultValue={item.provider_rating * 5 ?? " "}
-          //     precision={0.1}
-          //     readOnly
-          //   />
-          // }
+          rating={
+            <Rating
+              name="half-rating-read"
+              defaultValue={item.provider_rating * 5 ?? " "}
+              precision={0.1}
+              readOnly
+            />
+          }
         />
       </TableCell>
       <TableCell align="right">
@@ -55,8 +55,12 @@ export default function Item({
       </TableCell>
       <TableCell align="center">
         {comparedItems && comparedItems.includes(item) ? (
-          <Button variant="contained" onClick={() => removeFromCompare(item)}>
-            remove from compare
+          <Button
+            variant="contained"
+            onClick={() => removeFromCompare(item)}
+            sx={{ backgroundColor: "red" }}
+          >
+            Remove
           </Button>
         ) : (
           <Button variant="contained" onClick={() => addToCompare(item)}>
