@@ -159,11 +159,7 @@ export default function PersistentDrawerBottom({ comparedItems }) {
                   </StyledTableRow>
                   <StyledTableRow>
                     <StyledTableCell>Monthly Cost</StyledTableCell>
-                    <StyledTableCell>{x.monthly_price}</StyledTableCell>
-                  </StyledTableRow>
-                  <StyledTableRow>
-                    <StyledTableCell>Tariff Type</StyledTableCell>
-                    <StyledTableCell>{x.provider_name}</StyledTableCell>
+                    <StyledTableCell>£ {x.monthly_price}</StyledTableCell>
                   </StyledTableRow>
                   <StyledTableRow>
                     <StyledTableCell>Speed</StyledTableCell>
@@ -173,10 +169,7 @@ export default function PersistentDrawerBottom({ comparedItems }) {
                     <StyledTableCell>Set Up Cost</StyledTableCell>
                     <StyledTableCell>£{x.set_up_cost}</StyledTableCell>
                   </StyledTableRow>
-                  <StyledTableRow>
-                    <StyledTableCell>One Off Cost</StyledTableCell>
-                    <StyledTableCell>£{x.set_up_cost}</StyledTableCell>
-                  </StyledTableRow>
+
                   <StyledTableRow>
                     <StyledTableCell>Term End</StyledTableCell>
                     <StyledTableCell>{x.contract_info} Months</StyledTableCell>
