@@ -10,8 +10,8 @@ import ProviderInfo from "./ProviderInfo";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import TableRow from "@mui/material/TableRow";
-import TableCell from "@mui/material/TableCell";
-
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import Divider from "@mui/material/Divider";
 import TableBody from "@mui/material/TableBody";
 import { Typography } from "@mui/material";
 
@@ -65,6 +65,15 @@ export default function PersistentDrawerBottom({ comparedItems }) {
     boxShadow: 24,
     p: 4,
   };
+  const StyledTableBody = styled(TableBody)(({ theme }) => ({
+    "&": {
+      borderRight: "1px solid gray",
+    },
+    // hide last border
+    "&:last-child td, &:last-child th": {
+      borderRight: 0,
+    },
+  }));
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
     "&:nth-of-type(odd)": {
       backgroundColor: theme.palette.action.hover,
@@ -72,6 +81,16 @@ export default function PersistentDrawerBottom({ comparedItems }) {
     // hide last border
     "&:last-child td, &:last-child th": {
       border: 0,
+    },
+  }));
+  const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    [`&.${tableCellClasses.body}`]: {
+      fontSize: 14,
+      padding: "8px 48px",
     },
   }));
   return (
@@ -120,45 +139,46 @@ export default function PersistentDrawerBottom({ comparedItems }) {
       >
         <Box sx={style}>
           <Box>
-            <Typography component="h1" variant="h5">
+            <Typography component="h1" variant="h5" mb={2}>
               Compare
             </Typography>
+            <Divider />
             <Box display="flex">
               {comparedItems.map((x) => (
-                <TableBody>
+                <StyledTableBody>
                   <StyledTableRow>
-                    <TableCell>Provider Name</TableCell>
-                    <TableCell>{x.provider_name}</TableCell>
+                    <StyledTableCell>Provider Name</StyledTableCell>
+                    <StyledTableCell>{x.provider_name}</StyledTableCell>
                   </StyledTableRow>
                   <StyledTableRow>
-                    <TableCell>Monthly Cost</TableCell>
-                    <TableCell>{x.monthly_price}</TableCell>
+                    <StyledTableCell>Monthly Cost</StyledTableCell>
+                    <StyledTableCell>{x.monthly_price}</StyledTableCell>
                   </StyledTableRow>
                   <StyledTableRow>
-                    <TableCell>Tariff Type</TableCell>
-                    <TableCell>{x.provider_name}</TableCell>
+                    <StyledTableCell>Tariff Type</StyledTableCell>
+                    <StyledTableCell>{x.provider_name}</StyledTableCell>
                   </StyledTableRow>
                   <StyledTableRow>
-                    <TableCell>Speed</TableCell>
-                    <TableCell>{x.internet_speed} Mbps</TableCell>
+                    <StyledTableCell>Speed</StyledTableCell>
+                    <StyledTableCell>{x.internet_speed} Mbps</StyledTableCell>
                   </StyledTableRow>
                   <StyledTableRow>
-                    <TableCell>Set Up Cost</TableCell>
-                    <TableCell>£{x.set_up_cost}</TableCell>
+                    <StyledTableCell>Set Up Cost</StyledTableCell>
+                    <StyledTableCell>£{x.set_up_cost}</StyledTableCell>
                   </StyledTableRow>
                   <StyledTableRow>
-                    <TableCell>One Off Cost</TableCell>
-                    <TableCell>£{x.set_up_cost}</TableCell>
+                    <StyledTableCell>One Off Cost</StyledTableCell>
+                    <StyledTableCell>£{x.set_up_cost}</StyledTableCell>
                   </StyledTableRow>
                   <StyledTableRow>
-                    <TableCell>Term End</TableCell>
-                    <TableCell>{x.contract_info} Months</TableCell>
+                    <StyledTableCell>Term End</StyledTableCell>
+                    <StyledTableCell>{x.contract_info} Months</StyledTableCell>
                   </StyledTableRow>
                   <StyledTableRow>
-                    <TableCell>Data Limits</TableCell>
-                    <TableCell>{x.data_limits} </TableCell>
+                    <StyledTableCell>Data Limits</StyledTableCell>
+                    <StyledTableCell>{x.data_limits} </StyledTableCell>
                   </StyledTableRow>
-                </TableBody>
+                </StyledTableBody>
               ))}
             </Box>
           </Box>
