@@ -3,15 +3,15 @@ import React, { useState } from "react";
 import Drawer from "@mui/material/Drawer";
 
 import List from "@mui/material/List";
-
+import { styled } from "@mui/material/styles";
 import ListItem from "@mui/material/ListItem";
 import Button from "@mui/material/Button";
 import ProviderInfo from "./ProviderInfo";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import TableRow from "@mui/material/TableRow";
-import TableCell from "@mui/material/TableCell";
-
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import Divider from "@mui/material/Divider";
 import TableBody from "@mui/material/TableBody";
 import { Typography } from "@mui/material";
 
@@ -58,12 +58,41 @@ export default function PersistentDrawerBottom({ comparedItems }) {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 400,
+    minWidth: 400,
+    maxWidth: "100%",
     bgcolor: "background.paper",
     border: "2px solid #000",
     boxShadow: 24,
     p: 4,
   };
+  const StyledTableBody = styled(TableBody)(({ theme }) => ({
+    "&": {
+      borderRight: "1px solid purple",
+    },
+    // hide last border
+    "&:last-child , &:last-child ": {
+      borderRight: "none",
+    },
+  }));
+  const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.palette.action.hover,
+    },
+    // hide last border
+    "&:last-child td, &:last-child th": {
+      border: 0,
+    },
+  }));
+  const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    [`&.${tableCellClasses.body}`]: {
+      fontSize: 14,
+      padding: "8px 48px",
+    },
+  }));
   return (
     <Drawer
       sx={{
@@ -110,43 +139,53 @@ export default function PersistentDrawerBottom({ comparedItems }) {
       >
         <Box sx={style}>
           <Box>
-            <Typography>Compare</Typography>
-            <Box display="flex">
+            <Typography component="h1" variant="h5" mb={2}>
+              Compare
+            </Typography>
+            <Divider />
+            <Box display="flex" sx={{ overflow: "auto" }}>
               {comparedItems.map((x) => (
-                <TableBody>
-                  <TableRow>
-                    <TableCell>Provider Name</TableCell>
-                    <TableCell>{x.provider_name}</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Monthly Cost</TableCell>
-                    <TableCell>{x.monthly_price}</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Tariff Type</TableCell>
-                    <TableCell>{x.provider_name}</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Speed</TableCell>
-                    <TableCell>{x.internet_speed} Mbps</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Set Up Cost</TableCell>
-                    <TableCell>£{x.set_up_cost}</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>One Off Cost</TableCell>
-                    <TableCell>£{x.set_up_cost}</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Term End</TableCell>
-                    <TableCell>{x.contract_info} Months</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Data Limits</TableCell>
-                    <TableCell>{x.data_limits} </TableCell>
-                  </TableRow>
-                </TableBody>
+                <StyledTableBody>
+                  <Box p={2}>
+                    <ProviderInfo
+                      provider_name={x.provider_name}
+                      provider_logo_image_url={x.provider_logo_image_url}
+                      deal_name={x.deal_name}
+                    />
+                  </Box>
+                  <StyledTableRow>
+                    <StyledTableCell>Provider Name</StyledTableCell>
+                    <StyledTableCell>{x.provider_name}</StyledTableCell>
+                  </StyledTableRow>
+                  <StyledTableRow>
+                    <StyledTableCell>Monthly Cost</StyledTableCell>
+                    <StyledTableCell>{x.monthly_price}</StyledTableCell>
+                  </StyledTableRow>
+                  <StyledTableRow>
+                    <StyledTableCell>Tariff Type</StyledTableCell>
+                    <StyledTableCell>{x.provider_name}</StyledTableCell>
+                  </StyledTableRow>
+                  <StyledTableRow>
+                    <StyledTableCell>Speed</StyledTableCell>
+                    <StyledTableCell>{x.internet_speed} Mbps</StyledTableCell>
+                  </StyledTableRow>
+                  <StyledTableRow>
+                    <StyledTableCell>Set Up Cost</StyledTableCell>
+                    <StyledTableCell>£{x.set_up_cost}</StyledTableCell>
+                  </StyledTableRow>
+                  <StyledTableRow>
+                    <StyledTableCell>One Off Cost</StyledTableCell>
+                    <StyledTableCell>£{x.set_up_cost}</StyledTableCell>
+                  </StyledTableRow>
+                  <StyledTableRow>
+                    <StyledTableCell>Term End</StyledTableCell>
+                    <StyledTableCell>{x.contract_info} Months</StyledTableCell>
+                  </StyledTableRow>
+                  <StyledTableRow>
+                    <StyledTableCell>Data Limits</StyledTableCell>
+                    <StyledTableCell>{x.data_limits} </StyledTableCell>
+                  </StyledTableRow>
+                </StyledTableBody>
               ))}
             </Box>
           </Box>
