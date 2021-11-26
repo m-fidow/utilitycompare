@@ -5,6 +5,7 @@ import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 
 import ListItem from "@mui/material/ListItem";
+import Button from "@mui/material/Button";
 import ProviderInfo from "./ProviderInfo";
 
 // import ListItemIcon from "@mui/material/ListItemIcon";
@@ -68,6 +69,15 @@ export default function PersistentDrawerBottom({ comparedItems }) {
             />
           </ListItem>
         ))}
+        {comparedItems.length > 1 ? (
+          <ListItem>
+            <Button variant="outlined">
+              Compare deals ({comparedItems.length} of {comparedItems.length})
+            </Button>
+          </ListItem>
+        ) : (
+          <></>
+        )}
       </List>
     </Drawer>
 
