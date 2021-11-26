@@ -143,7 +143,7 @@ export default function PersistentDrawerBottom({ comparedItems }) {
               Compare
             </Typography>
             <Divider />
-            <Box display="flex">
+            <Box display="flex" sx={{ overflow: "auto" }}>
               {comparedItems.map((x) => (
                 <StyledTableBody>
                   <Box p={2}>

@@ -5,14 +5,11 @@ import TableCell from "@mui/material/TableCell";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Rating from "@mui/material/Rating";
+import { Typography } from "@mui/material";
 
 export default function Item({
   item,
-  // monthly_price,
-  // internet_speed,
-  // set_up_cost,
-  // broadband_type,
-  // contract_info,
+
   addToCompare,
   removeFromCompare,
   comparedItems,
@@ -33,24 +30,60 @@ export default function Item({
           }
         />
       </TableCell>
-      <TableCell align="right">
-        £{item.monthly_price}
-        <Grid item>Monthy Cost</Grid>
-      </TableCell>
-      <TableCell align="right">
-        <Grid>
-          <Grid item>{item.internet_speed} Mbps</Grid>
-          <Grid item>{item.broadband_type} Speed</Grid>
+      <TableCell align="center">
+        <Typography
+          component="h5"
+          variant="h6"
+          textAlign="center"
+          color="primary"
+        >
+          <strong>£{item.monthly_price}</strong>
+        </Typography>
+        <Grid item>
+          <Typography component="h6" variant="caption" color="primary">
+            Monthy Cost
+          </Typography>
         </Grid>
       </TableCell>
-      <TableCell align="right">
-        <Grid>£{item.set_up_cost}</Grid>
-        <Grid item>Setup Costs</Grid>
-      </TableCell>
-      <TableCell align="right">
+      <TableCell align="center">
         <Grid>
-          <Grid item> {item.contract_info}</Grid>
-          <Grid item>Contract</Grid>
+          <Grid item>
+            <Typography component="h5" variant="subtitle1" textAlign="center">
+              <strong>{item.internet_speed} Mbps </strong>
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography component="h6" variant="caption">
+              {item.broadband_type} Speed
+            </Typography>
+          </Grid>
+        </Grid>
+      </TableCell>
+      <TableCell align="center">
+        <Grid>
+          {" "}
+          <Typography component="h5" variant="subtitle1" textAlign="center">
+            <strong>£{item.set_up_cost}</strong>
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Typography component="h6" variant="caption">
+            Setup Costs
+          </Typography>
+        </Grid>
+      </TableCell>
+      <TableCell align="center">
+        <Grid>
+          <Grid item>
+            <Typography component="h5" variant="subtitle1" textAlign="center">
+              <strong> {item.contract_info}</strong>
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography component="h6" variant="caption">
+              Contract
+            </Typography>
+          </Grid>
         </Grid>
       </TableCell>
       <TableCell align="center">
