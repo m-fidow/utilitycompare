@@ -38,7 +38,7 @@ function DataTable({ items }) {
                 comparedItems={comparedItems}
                 addToCompare={addToCompare}
                 removeFromCompare={removeFromCompare}
-                {...item}
+                item={item}
               />
             </TableRow>
           ))}

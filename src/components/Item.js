@@ -8,16 +8,15 @@ import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 
 export default function Item({
-  monthly_price,
-  internet_speed,
-  set_up_cost,
-  broadband_type,
-  contract_info,
+  item,
+  // monthly_price,
+  // internet_speed,
+  // set_up_cost,
+  // broadband_type,
+  // contract_info,
   addToCompare,
   removeFromCompare,
   comparedItems,
-  provider_rating,
-  ...item
 }) {
   return (
     <>
@@ -27,7 +26,7 @@ export default function Item({
           rating={
             <Rating
               name="half-rating-read"
-              defaultValue={provider_rating * 5}
+              defaultValue={item.provider_rating * 5 ?? " "}
               precision={0.1}
               readOnly
             />
@@ -35,22 +34,22 @@ export default function Item({
         />
       </TableCell>
       <TableCell align="right">
-        £{monthly_price}
+        £{item.monthly_price}
         <Grid item>Monthy Cost</Grid>
       </TableCell>
       <TableCell align="right">
         <Grid>
-          <Grid item>{internet_speed} Mbps</Grid>
-          <Grid item>{broadband_type} Speed</Grid>
+          <Grid item>{item.internet_speed} Mbps</Grid>
+          <Grid item>{item.broadband_type} Speed</Grid>
         </Grid>
       </TableCell>
       <TableCell align="right">
-        <Grid>£{set_up_cost}</Grid>
+        <Grid>£{item.set_up_cost}</Grid>
         <Grid item>Setup Costs</Grid>
       </TableCell>
       <TableCell align="right">
         <Grid>
-          <Grid item> {contract_info}</Grid>
+          <Grid item> {item.contract_info}</Grid>
           <Grid item>Contract</Grid>
         </Grid>
       </TableCell>
