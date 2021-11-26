@@ -15,12 +15,14 @@ function DataTable({ items }) {
 
   const addToCompare = (x) => {
     setComparedItems((comparedItems) => [...comparedItems, x]);
+    console.log({ comparedItems });
   };
   const removeFromCompare = (x) => {
     const filteredItems = comparedItems.filter(
       (product) => product.deal_id !== x.deal_id
     );
     setComparedItems(() => filteredItems);
+    console.log({ filteredItems });
   };
   return (
     <TableContainer component={Paper}>

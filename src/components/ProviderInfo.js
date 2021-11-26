@@ -22,15 +22,7 @@ function ProviderInfo({
         {provider_name}
         <p>{deal_name}</p>
         {provider_rating}
-        <Stack spacing={1}>
-          {rating}
-          {/* <Rating
-            name="half-rating-read"
-            defaultValue={provider_rating * 5}
-            precision={0.1}
-            readOnly
-          /> */}
-        </Stack>
+        <Stack spacing={1}>{rating}</Stack>
       </Grid>
     </Grid>
   );

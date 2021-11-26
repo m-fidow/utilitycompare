@@ -40,17 +40,17 @@ export default function Item({
       </TableCell>
       <TableCell align="right">
         <Grid>
-          <Grid item>{item.internet_speed} Mbps</Grid>
-          <Grid item>{item.broadband_type} Speed</Grid>
+          <Grid item>{internet_speed} Mbps</Grid>
+          <Grid item>{broadband_type} Speed</Grid>
         </Grid>
       </TableCell>
       <TableCell align="right">
-        <Grid>£{item.set_up_cost}</Grid>
+        <Grid>£{set_up_cost}</Grid>
         <Grid item>Setup Costs</Grid>
       </TableCell>
       <TableCell align="right">
         <Grid>
-          <Grid item> {item.contract_info}</Grid>
+          <Grid item> {contract_info}</Grid>
           <Grid item>Contract</Grid>
         </Grid>
       </TableCell>
