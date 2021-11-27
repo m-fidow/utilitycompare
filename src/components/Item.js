@@ -8,12 +8,23 @@ import Rating from "@mui/material/Rating";
 import { Typography } from "@mui/material";
 
 export default function Item({
-  item,
-
   addToCompare,
   removeFromCompare,
   comparedItems,
+  item,
 }) {
+  const dealDetails = [
+    { detail: `£ ${item.monthly_price}`, detailDescription: "Monthly Cost" },
+    {
+      detail: `${item.internet_speed} Mbps`,
+      detailDescription: `${item.broadband_type} Speed`,
+    },
+    { detail: `£ ${item.set_up_cost}`, detailDescription: "Setup Costs" },
+    {
+      detail: `${item.contract_info}`,
+      detailDescription: "Contract",
+    },
+  ];
   return (
     <>
       <TableCell component="th" scope="row">
@@ -30,62 +41,32 @@ export default function Item({
           }
         />
       </TableCell>
-      <TableCell align="center">
-        <Typography
-          component="h5"
-          variant="h6"
-          textAlign="center"
-          color="primary"
-        >
-          <strong>£{item.monthly_price}</strong>
-        </Typography>
-        <Grid item>
-          <Typography component="h6" variant="caption" color="primary">
-            Monthy Cost
-          </Typography>
-        </Grid>
-      </TableCell>
-      <TableCell align="center">
-        <Grid>
-          <Grid item>
-            <Typography component="h5" variant="subtitle1" textAlign="center">
-              <strong>{item.internet_speed} Mbps </strong>
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Typography component="h6" variant="caption">
-              {item.broadband_type} Speed
-            </Typography>
-          </Grid>
-        </Grid>
-      </TableCell>
-      <TableCell align="center">
-        <Grid>
-          {" "}
-          <Typography component="h5" variant="subtitle1" textAlign="center">
-            <strong>£{item.set_up_cost}</strong>
-          </Typography>
-        </Grid>
-        <Grid item>
-          <Typography component="h6" variant="caption">
-            Setup Costs
-          </Typography>
-        </Grid>
-      </TableCell>
-      <TableCell align="center">
-        <Grid>
-          <Grid item>
-            <Typography component="h5" variant="subtitle1" textAlign="center">
-              <strong> {item.contract_info}</strong>
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Typography component="h6" variant="caption">
-              Contract
-            </Typography>
-          </Grid>
-        </Grid>
-      </TableCell>
+      {dealDetails.map(({ detail, detailDescription }, index) => {
+        console.log(index);
+        return (
+          <>
+            <TableCell align="center" key={index}>
+              <Grid>
+                <Grid item>
+                  <Typography
+                    component="h5"
+                    variant="subtitle1"
+                    textAlign="center"
+                  >
+                    <strong>{detail}</strong>
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography component="h6" variant="caption">
+                    {detailDescription}
+                  </Typography>
+                </Grid>
+              </Grid>
+            </TableCell>
+          </>
+        );
+      })}
+
       <TableCell align="center">
         {comparedItems && comparedItems.includes(item) ? (
           <Button
@@ -104,4 +85,3 @@ export default function Item({
     </>
   );
 }
-// onClick={() => toggleDrawer(item)}
