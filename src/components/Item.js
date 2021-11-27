@@ -1,5 +1,4 @@
 import ProviderInfo from "./ProviderInfo";
-// import CompareButton from "./Button";
 
 import TableCell from "@mui/material/TableCell";
 import Button from "@mui/material/Button";
