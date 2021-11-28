@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Drawer from "@mui/material/Drawer";
-
+// import MyModal from "./Modal";
 import List from "@mui/material/List";
 import { styled } from "@mui/material/styles";
 import ListItem from "@mui/material/ListItem";
@@ -47,6 +47,7 @@ const drawerWidth = -240;
 
 export default function PersistentDrawerBottom({ comparedItems }) {
   const [showModal, setShowModal] = useState(false);
+
   const handleOpen = () => {
     setShowModal(true);
   };
@@ -93,6 +94,7 @@ export default function PersistentDrawerBottom({ comparedItems }) {
       padding: "8px 48px",
     },
   }));
+
   return (
     <Drawer
       sx={{
@@ -130,12 +132,14 @@ export default function PersistentDrawerBottom({ comparedItems }) {
           <></>
         )}
       </List>
+
       <Modal
         // hideBackdrop
         open={showModal}
         onClose={handleClose}
         aria-labelledby="child-modal-title"
         aria-describedby="child-modal-description"
+        comparedItems={comparedItems}
       >
         <Box sx={style}>
           <Box>
@@ -144,59 +148,52 @@ export default function PersistentDrawerBottom({ comparedItems }) {
             </Typography>
             <Divider />
             <Box display="flex" sx={{ overflow: "auto" }}>
-              {comparedItems.map((x) => (
-                <StyledTableBody>
-                  <Box p={2}>
-                    <ProviderInfo
-                      provider_name={x.provider_name}
-                      provider_logo_image_url={x.provider_logo_image_url}
-                      deal_name={x.deal_name}
-                    />
-                  </Box>
-                  <StyledTableRow>
-                    <StyledTableCell>Provider Name</StyledTableCell>
-                    <StyledTableCell>{x.provider_name}</StyledTableCell>
-                  </StyledTableRow>
-                  <StyledTableRow>
-                    <StyledTableCell>Monthly Cost</StyledTableCell>
-                    <StyledTableCell>£ {x.monthly_price}</StyledTableCell>
-                  </StyledTableRow>
-                  <StyledTableRow>
-                    <StyledTableCell>Speed</StyledTableCell>
-                    <StyledTableCell>{x.internet_speed} Mbps</StyledTableCell>
-                  </StyledTableRow>
-                  <StyledTableRow>
-                    <StyledTableCell>Set Up Cost</StyledTableCell>
-                    <StyledTableCell>£{x.set_up_cost}</StyledTableCell>
-                  </StyledTableRow>
+              {comparedItems.map((item) => {
+                const miao = [
+                  {
+                    detail: `£ ${item.monthly_price}`,
+                    detailDescription: "Monthly Cost",
+                  },
+                  {
+                    detail: `${item.internet_speed} Mbps`,
+                    detailDescription: `${item.broadband_type} Speed`,
+                  },
+                  {
+                    detail: `£ ${item.set_up_cost}`,
+                    detailDescription: "Setup Costs",
+                  },
+                  {
+                    detail: `${item.contract_info}`,
+                    detailDescription: "Term End",
+                  },
+                  {
+                    detail: `${item.data_limits}`,
+                    detailDescription: "Data Limits",
+                  },
+                ];
 
-                  <StyledTableRow>
-                    <StyledTableCell>Term End</StyledTableCell>
-                    <StyledTableCell>{x.contract_info} Months</StyledTableCell>
-                  </StyledTableRow>
-                  <StyledTableRow>
-                    <StyledTableCell>Data Limits</StyledTableCell>
-                    <StyledTableCell>{x.data_limits} </StyledTableCell>
-                  </StyledTableRow>
-                </StyledTableBody>
-              ))}
+                return (
+                  <StyledTableBody>
+                    <Box p={2}>
+                      <ProviderInfo
+                        provider_name={item.provider_name}
+                        provider_logo_image_url={item.provider_logo_image_url}
+                        deal_name={item.deal_name}
+                      />
+                    </Box>
+                    {miao.map((x) => (
+                      <StyledTableRow>
+                        <StyledTableCell>{x.detailDescription}</StyledTableCell>
+                        <StyledTableCell>{x.detail}</StyledTableCell>
+                      </StyledTableRow>
+                    ))}
+                  </StyledTableBody>
+                );
+              })}
             </Box>
           </Box>
         </Box>
       </Modal>
     </Drawer>
-
-    // </Box>
   );
 }
-/* <Grid container>
-                  <Grid item>
-                    <p>Provider Name </p>
-                    <p>{x.provider_name}</p>
-                  </Grid>
-                  <Grid item>
-                    <p>Rating </p>
-                    <p>{x.provider_rating}</p>
-                  </Grid>
-              
-                </Grid> */

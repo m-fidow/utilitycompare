@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import Item from "./Item";
+import Drawer from "./Drawer";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
-import Drawer from "./Drawer";
-// import Button from "@mui/material/Button";
-
 import TableContainer from "@mui/material/TableContainer";
-
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
@@ -25,29 +22,31 @@ function DataTable({ items }) {
     console.log({ filteredItems });
   };
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableBody>
-          {items.map((item) => (
-            <TableRow
-              key={item.deal_id}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <Item
+    <>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableBody>
+            {items.map((item) => (
+              <TableRow
                 key={item.deal_id}
-                comparedItems={comparedItems}
-                addToCompare={addToCompare}
-                removeFromCompare={removeFromCompare}
-                item={item}
-              />
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              >
+                <Item
+                  key={item.deal_id}
+                  comparedItems={comparedItems}
+                  addToCompare={addToCompare}
+                  removeFromCompare={removeFromCompare}
+                  item={item}
+                />
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
       {comparedItems.length > 0 && (
         <Drawer comparedItems={[...comparedItems]} />
       )}
-    </TableContainer>
+    </>
   );
 }
 
