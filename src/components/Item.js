@@ -41,7 +41,6 @@ export default function Item({
         />
       </TableCell>
       {dealDetails.map(({ detail, detailDescription }, index) => {
-        console.log(index);
         return (
           <>
             <TableCell align="center" key={index}>

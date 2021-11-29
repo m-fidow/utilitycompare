@@ -6,9 +6,10 @@ import { styled } from "@mui/material/styles";
 import Divider from "@mui/material/Divider";
 import TableBody from "@mui/material/TableBody";
 import TableRow from "@mui/material/TableRow";
+import Modal from "@mui/material/Modal";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 
-function MyModal({ comparedItems }) {
+function MyModal({ comparedItems, open, onClose, setShowModal }) {
   const style = {
     position: "absolute",
     top: "50%",
@@ -51,58 +52,71 @@ function MyModal({ comparedItems }) {
   }));
 
   return (
-    <Box sx={style}>
-      <Box>
-        <Typography component="h1" variant="h5" mb={2}>
-          Compare
-        </Typography>
-        <Divider />
-        <Box display="flex" sx={{ overflow: "auto" }}>
-          {comparedItems.map((item) => {
-            const miao = [
-              {
-                detail: `£ ${item.monthly_price}`,
-                detailDescription: "Monthly Cost",
-              },
-              {
-                detail: `${item.internet_speed} Mbps`,
-                detailDescription: `${item.broadband_type} Speed`,
-              },
-              {
-                detail: `£ ${item.set_up_cost}`,
-                detailDescription: "Setup Costs",
-              },
-              {
-                detail: `${item.contract_info}`,
-                detailDescription: "Term End",
-              },
-              {
-                detail: `${item.data_limits}`,
-                detailDescription: "Data Limits",
-              },
-            ];
+    <Modal
+      // hideBackdrop
+      open={open}
+      onClose={onClose}
+      aria-labelledby="child-modal-title"
+      aria-describedby="child-modal-description"
+      // comparedItems={comparedItems}
+    >
+      <Box sx={style}>
+        <Box>
+          <Box display="flex" justifyContent="space-between">
+            <Typography component="h1" variant="h5" mb={2}>
+              Compare
+            </Typography>
+            {/* <button onClick={onClose}>Close</button> */}
+          </Box>
 
-            return (
-              <StyledTableBody>
-                <Box p={2}>
-                  <ProviderInfo
-                    provider_name={item.provider_name}
-                    provider_logo_image_url={item.provider_logo_image_url}
-                    deal_name={item.deal_name}
-                  />
-                </Box>
-                {miao.map((x) => (
-                  <StyledTableRow>
-                    <StyledTableCell>{x.detailDescription}</StyledTableCell>
-                    <StyledTableCell>{x.detail}</StyledTableCell>
-                  </StyledTableRow>
-                ))}
-              </StyledTableBody>
-            );
-          })}
+          <Divider />
+          <Box display="flex" sx={{ overflow: "auto" }}>
+            {comparedItems.map((item) => {
+              const miao = [
+                {
+                  detail: `£ ${item.monthly_price}`,
+                  detailDescription: "Monthly Cost",
+                },
+                {
+                  detail: `${item.internet_speed} Mbps`,
+                  detailDescription: `${item.broadband_type} Speed`,
+                },
+                {
+                  detail: `£ ${item.set_up_cost}`,
+                  detailDescription: "Setup Costs",
+                },
+                {
+                  detail: `${item.contract_info}`,
+                  detailDescription: "Term End",
+                },
+                {
+                  detail: `${item.data_limits}`,
+                  detailDescription: "Data Limits",
+                },
+              ];
+
+              return (
+                <StyledTableBody>
+                  <Box p={2}>
+                    <ProviderInfo
+                      provider_name={item.provider_name}
+                      provider_logo_image_url={item.provider_logo_image_url}
+                      deal_name={item.deal_name}
+                    />
+                  </Box>
+                  {miao.map((x) => (
+                    <StyledTableRow>
+                      <StyledTableCell>{x.detailDescription}</StyledTableCell>
+                      <StyledTableCell>{x.detail}</StyledTableCell>
+                    </StyledTableRow>
+                  ))}
+                </StyledTableBody>
+              );
+            })}
+          </Box>
         </Box>
       </Box>
-    </Box>
+    </Modal>
   );
 }
 
