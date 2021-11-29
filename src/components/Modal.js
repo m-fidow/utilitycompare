@@ -58,7 +58,6 @@ function MyModal({ comparedItems, open, onClose, setShowModal }) {
       onClose={onClose}
       aria-labelledby="child-modal-title"
       aria-describedby="child-modal-description"
-      // comparedItems={comparedItems}
     >
       <Box sx={style}>
         <Box>
