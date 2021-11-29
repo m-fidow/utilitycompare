@@ -6,10 +6,19 @@ import TableBody from "@mui/material/TableBody";
 import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import MyModal from "./Modal";
 
 function DataTable({ items }) {
   const [comparedItems, setComparedItems] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
+  const handleOpen = () => {
+    setShowModal(true);
+  };
+  const handleClose = () => {
+    setShowModal(false);
+    console.log(showModal);
+  };
   const addToCompare = (x) => {
     setComparedItems((comparedItems) => [...comparedItems, x]);
     console.log({ comparedItems });
@@ -19,8 +28,13 @@ function DataTable({ items }) {
       (product) => product.deal_id !== x.deal_id
     );
     setComparedItems(() => filteredItems);
+    if (filteredItems.length === 0) {
+      console.log("zero");
+      handleClose();
+    }
     console.log({ filteredItems });
   };
+
   return (
     <>
       <TableContainer component={Paper}>
@@ -44,7 +58,15 @@ function DataTable({ items }) {
         </Table>
       </TableContainer>
       {comparedItems.length > 0 && (
-        <Drawer comparedItems={[...comparedItems]} />
+        <Drawer handleOpen={handleOpen} comparedItems={[...comparedItems]} />
+      )}
+
+      {showModal && (
+        <MyModal
+          open={showModal}
+          onClose={() => setShowModal(false)}
+          comparedItems={comparedItems}
+        />
       )}
     </>
   );
