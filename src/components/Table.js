@@ -7,8 +7,12 @@ import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import MyModal from "./Modal";
+import { useGlobalContext } from "./../context";
 
-function DataTable({ items }) {
+function DataTable() {
+  const { items } = useGlobalContext();
+  console.log(items);
+
   const [comparedItems, setComparedItems] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
