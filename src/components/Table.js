@@ -44,17 +44,17 @@ function DataTable() {
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableBody>
-            {items.map((item) => (
+            {items.map((item, index) => (
               <TableRow
-                key={item.deal_id}
+                key={index}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <Item
-                  key={item.deal_id}
+                  key={item.id}
                   comparedItems={comparedItems}
                   addToCompare={addToCompare}
                   removeFromCompare={removeFromCompare}
-                  item={item}
+                  {...item}
                 />
               </TableRow>
             ))}

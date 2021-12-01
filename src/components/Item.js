@@ -10,23 +10,29 @@ export default function Item({
   addToCompare,
   removeFromCompare,
   comparedItems,
-  item,
+  id,
+  name,
 }) {
-  const dealDetails = [
-    { detail: `£ ${item.monthly_price}`, detailDescription: "Monthly Cost" },
-    {
-      detail: `${item.internet_speed} Mbps`,
-      detailDescription: `${item.broadband_type} Speed`,
-    },
-    { detail: `£ ${item.set_up_cost}`, detailDescription: "Setup Costs" },
-    {
-      detail: `${item.contract_info}`,
-      detailDescription: "Contract",
-    },
-  ];
+  // const dealDetails = [
+  //   { detail: `£ ${item.monthly_price}`, detailDescription: "Monthly Cost" },
+  //   {
+  //     detail: `${item.internet_speed} Mbps`,
+  //     detailDescription: `${item.broadband_type} Speed`,
+  //   },
+  //   { detail: `£ ${item.set_up_cost}`, detailDescription: "Setup Costs" },
+  //   {
+  //     detail: `${item.contract_info}`,
+  //     detailDescription: "Contract",
+  //   },
+  // ];
   return (
     <>
-      <TableCell component="th" scope="row">
+      <TableCell align="center">
+        {id}
+        {name}
+      </TableCell>
+
+      {/* <TableCell component="th" scope="row">
         <ProviderInfo
           {...item}
           rating={
@@ -79,7 +85,7 @@ export default function Item({
             Add to compare
           </Button>
         )}
-      </TableCell>
+      </TableCell> */}
     </>
   );
 }

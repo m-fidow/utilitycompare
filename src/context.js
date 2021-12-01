@@ -9,11 +9,11 @@ function AppProvider({ children }) {
       .get(url)
       .then((response) => {
         // Code for handling the response
-        console.log(response.data.deals);
-        setItems(response.data.deals);
-        const { items } = response.data.deals;
-
-        const newItems = items.map((item) => {
+        // console.log(response.data.deals);
+        // setItems(response.data.deals);
+        const { deals } = response.data;
+        console.log(deals);
+        const newItems = deals.map((item) => {
           const { provider_id, provider_name, monthly_price } = item;
           console.log(item);
           return {
