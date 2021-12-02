@@ -14,12 +14,32 @@ function AppProvider({ children }) {
         const { deals } = response.data;
         console.log(deals);
         const newItems = deals.map((item) => {
-          const { provider_id, provider_name, monthly_price } = item;
+          const {
+            deal_id,
+            deal_name,
+            provider_name,
+            provider_logo_image_url,
+            monthly_price,
+            internet_speed,
+            contract_info,
+            broadband_type,
+            set_up_cost,
+            provider_rating,
+            data_limits,
+          } = item;
           console.log(item);
           return {
-            id: provider_id,
+            id: deal_id,
+            dealName: deal_name,
             name: provider_name,
+            logo: provider_logo_image_url,
+            speed: internet_speed,
             cost: monthly_price,
+            contract: contract_info,
+            broadBandType: broadband_type,
+            setUpCost: set_up_cost,
+            rating: provider_rating,
+            dataLimit: data_limits,
           };
         });
         setItems(newItems);
