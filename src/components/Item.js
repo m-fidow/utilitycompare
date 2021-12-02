@@ -10,20 +10,21 @@ export default function Item({
   addToCompare,
   removeFromCompare,
   comparedItems,
-  item,
+  ...item
 }) {
   const dealDetails = [
-    { detail: `£ ${item.monthly_price}`, detailDescription: "Monthly Cost" },
+    { detail: `£ ${item.cost}`, detailDescription: "Monthly Cost" },
     {
-      detail: `${item.internet_speed} Mbps`,
+      detail: `${item.speed} Mbps`,
       detailDescription: `${item.broadband_type} Speed`,
     },
-    { detail: `£ ${item.set_up_cost}`, detailDescription: "Setup Costs" },
+    { detail: `£ ${item.setUpCost}`, detailDescription: "Setup Costs" },
     {
-      detail: `${item.contract_info}`,
+      detail: `${item.contract}`,
       detailDescription: "Contract",
     },
   ];
+  console.log({ item });
   return (
     <>
       <TableCell component="th" scope="row">
@@ -32,7 +33,7 @@ export default function Item({
           rating={
             <Rating
               name="half-rating-read"
-              defaultValue={item.provider_rating * 5 ?? " "}
+              defaultValue={item.rating * 5 ?? " "}
               precision={0.1}
               size="small"
               readOnly

@@ -44,13 +44,14 @@ export default function PersistentDrawerBottom({ comparedItems, handleOpen }) {
       open={true}
     >
       <List sx={{ display: "flex" }}>
-        {comparedItems.map((el, index) => (
+        {comparedItems.map((item, index) => (
           <ListItem key={index}>
             <ProviderInfo
-              provider_name={el.provider_name}
-              provider_logo_image_url={el.provider_logo_image_url}
-              deal_name={el.deal_name}
+              name={item.name}
+              logo={item.logo}
+              dealName={item.dealName}
             />
+            {console.log({ comparedItems })}
           </ListItem>
         ))}
         {comparedItems.length > 1 ? (

@@ -71,25 +71,25 @@ function MyModal({ comparedItems, open, onClose, setShowModal }) {
           <Divider />
           <Box display="flex" sx={{ overflow: "auto" }}>
             {comparedItems.map((item) => {
-              const miao = [
+              const dealDetails = [
                 {
-                  detail: `£ ${item.monthly_price}`,
+                  detail: `£ ${item.cost}`,
                   detailDescription: "Monthly Cost",
                 },
                 {
-                  detail: `${item.internet_speed} Mbps`,
-                  detailDescription: `${item.broadband_type} Speed`,
+                  detail: `${item.speed} Mbps`,
+                  detailDescription: `${item.broadBandType} Speed`,
                 },
                 {
-                  detail: `£ ${item.set_up_cost}`,
+                  detail: `£ ${item.setUpCost}`,
                   detailDescription: "Setup Costs",
                 },
                 {
-                  detail: `${item.contract_info}`,
+                  detail: `${item.contract}`,
                   detailDescription: "Term End",
                 },
                 {
-                  detail: `${item.data_limits}`,
+                  detail: `${item.dataLimit}`,
                   detailDescription: "Data Limits",
                 },
               ];
@@ -98,12 +98,12 @@ function MyModal({ comparedItems, open, onClose, setShowModal }) {
                 <StyledTableBody>
                   <Box p={2}>
                     <ProviderInfo
-                      provider_name={item.provider_name}
-                      provider_logo_image_url={item.provider_logo_image_url}
-                      deal_name={item.deal_name}
+                      name={item.name}
+                      logo={item.logo}
+                      dealName={item.dealName}
                     />
                   </Box>
-                  {miao.map((x) => (
+                  {dealDetails.map((x) => (
                     <StyledTableRow>
                       <StyledTableCell>{x.detailDescription}</StyledTableCell>
                       <StyledTableCell>{x.detail}</StyledTableCell>

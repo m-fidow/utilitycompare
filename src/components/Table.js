@@ -7,8 +7,12 @@ import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import MyModal from "./Modal";
+import { useGlobalContext } from "./../context";
 
-function DataTable({ items }) {
+function DataTable() {
+  const { items } = useGlobalContext();
+  console.log(items);
+
   const [comparedItems, setComparedItems] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
@@ -40,17 +44,17 @@ function DataTable({ items }) {
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableBody>
-            {items.map((item) => (
+            {items.map((item, index) => (
               <TableRow
-                key={item.deal_id}
+                key={index}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <Item
-                  key={item.deal_id}
+                  key={item.id}
                   comparedItems={comparedItems}
                   addToCompare={addToCompare}
                   removeFromCompare={removeFromCompare}
-                  item={item}
+                  {...item}
                 />
               </TableRow>
             ))}
