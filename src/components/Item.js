@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Rating from "@mui/material/Rating";
 import { Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
 
 export default function Item({
   addToCompare,
@@ -12,6 +13,11 @@ export default function Item({
   comparedItems,
   item,
 }) {
+  const StyledRating = styled(Rating)({
+    "& .MuiRating-iconFilled": {
+      color: "#1976d2",
+    },
+  });
   const dealDetails = [
     { detail: `£ ${item.monthly_price}`, detailDescription: "Monthly Cost" },
     {
@@ -30,11 +36,12 @@ export default function Item({
         <ProviderInfo
           {...item}
           rating={
-            <Rating
+            <StyledRating
               name="half-rating-read"
               defaultValue={item.provider_rating * 5 ?? " "}
               precision={0.1}
               size="small"
+              sx={{ "& .MuiRating-iconFilled": { backgroundColor: "primary" } }}
               readOnly
             />
           }

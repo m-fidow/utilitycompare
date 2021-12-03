@@ -37,13 +37,16 @@ function DataTable({ items }) {
 
   return (
     <>
-      <TableContainer component={Paper} sx={{ backgroundColor: "#f8f8f8" }}>
+      <TableContainer
+        component={Paper}
+        sx={{ backgroundColor: "#f8f8f8", boxShadow: "none", height: "100vh" }}
+      >
         <Table
           size="small"
           sx={{
             minWidth: 650,
             width: "75%",
-            margin: "5% auto",
+            margin: "2% auto",
             border: "1px solid #ecebeb",
             borderCollapse: "inherit",
             borderRadius: "20px",
