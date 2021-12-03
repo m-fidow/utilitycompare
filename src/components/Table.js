@@ -37,9 +37,21 @@ function DataTable({ items }) {
 
   return (
     <>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableBody>
+      <TableContainer component={Paper} sx={{ backgroundColor: "#f8f8f8" }}>
+        <Table
+          size="small"
+          sx={{
+            minWidth: 650,
+            width: "75%",
+            margin: "5% auto",
+            border: "1px solid #ecebeb",
+            borderCollapse: "inherit",
+            borderRadius: "20px",
+            backgroundColor: "#fff",
+          }}
+          aria-label="simple table"
+        >
+          <TableBody sx={{}}>
             {items.map((item) => (
               <TableRow
                 key={item.deal_id}

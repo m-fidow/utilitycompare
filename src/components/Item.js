@@ -26,7 +26,7 @@ export default function Item({
   ];
   return (
     <>
-      <TableCell component="th" scope="row">
+      <TableCell component="th" scope="row" sx={{ padding: "16px 16px" }}>
         <ProviderInfo
           {...item}
           rating={
