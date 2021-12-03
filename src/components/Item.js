@@ -70,16 +70,38 @@ export default function Item({
           <Button
             variant="contained"
             onClick={() => removeFromCompare(item)}
-            sx={{ backgroundColor: "red" }}
+            sx={{
+              backgroundColor: "red",
+              paddingLeft: " 48px",
+              paddingRight: " 48px",
+              borderRadius: "50px",
+              textTransform: "capitalize",
+              ":hover": { backgroundColor: "#b70707" },
+            }}
           >
             Remove
           </Button>
         ) : (
-          <Button variant="contained" onClick={() => addToCompare(item)}>
-            Add to compare
+          <Button
+            variant="contained"
+            sx={{
+              borderRadius: "50px",
+              backgroundColor: "white",
+              border: "2px solid #1976d2 ",
+              color: "#000",
+              textTransform: "capitalize",
+            }}
+            onClick={() => addToCompare(item)}
+          >
+            Add To Compare
           </Button>
         )}
       </TableCell>
     </>
   );
 }
+// sx={{
+//   ':hover': {
+//     bgcolor: 'primary.main', // theme.palette.primary.main
+//     color: 'white',
+//   },
