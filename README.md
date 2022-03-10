@@ -1,5 +1,5 @@
 # Utility Compare - [Demo](https://utilitycompare.netlify.app/)
-The goal was to create a basic compare website that users can at least two different broadband deals that are selected from a filled mock data of items. I was provided with screenshots of the final product to clone. From the images, I created a Single-page application with multiple reusable components styled with Material UI.
+The goal was to create website where users can compare at least two different broadband deals. I was provided with screenshots of the final product to clone and mock server that returns all available broadband deals. From the images, I created a Single-page application with multiple reusable components styled with Material UI.
 
 ## Feautures
 - An item component that holds provider’s name, rating, logo, deal name , monthly cost, setup costs, contract length. 
