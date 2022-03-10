@@ -1,11 +1,55 @@
-# Getting Started with Create React App
+# Utility Compare - [Demo](https://utilitycompare.netlify.app/)
+The goal was to create a basic compare website that users can at least two different broadband deals that are selected from a filled mock data of items. I was provided with screenshots of the final product to clone. From the images, I created a Single-page application with multiple reusable components styled with Material UI.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Feautures
+- An item component that holds provider’s name, rating, logo, deal name , monthly cost, setup costs, contract length. 
+- A page that lists these items and components holding the items retrieved rom the mock api
+- An overlay bottom drawer that becomes visible as soon as one of the “add to compare” buttons clicked in the list
+- A Modal that lists selected deals side by side in a table.
 
-## Available Scripts
+### Component tree
 
-In the project directory, you can run:
+- App
+  -   DataTable
+    -  Item
+       -  ProviderInfo
+    - Drawer
+    -  Modal
+ ### Hooks
+ - useState Hook
+ - useEffect
+ 
+ ## Color Reference
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Background| ![#ffffff](https://via.placeholder.com/10/fff?text=+) #fffff |
+| Add button| ![#1976d2](https://via.placeholder.com/10/1976d2?text=+) #1976d2 |
+| Remove Button | ![#ff0000](https://via.placeholder.com/10/ff0000?text=+) #ff0000 |
+|Rating stars| ![#faaf00](https://via.placeholder.com/10/faaf00?text=+) #faaf00|
+|Odd numbered table lines| ![#e0e0e0](https://via.placeholder.com/10/e0e0e0?text=+) #e0e0e0|
+|Table separators| ![#800080](https://via.placeholder.com/10/800080?text=+) #800080|
 
+
+
+## Dependencies
+```bash
+    "@emotion/react": "^11.6.0",
+    "@emotion/styled": "^11.6.0",
+    "@mui/icons-material": "^5.2.0",
+    "@mui/material": "^5.1.1",
+    "@mui/x-data-grid": "^5.0.1",
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.24.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.1.2"
+```
+## Create React App
+This project was bootstrapped with Create React App.
 ### `npm start`
 
 Runs the app in the development mode.\
@@ -39,32 +83,3 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
